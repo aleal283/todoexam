@@ -23,3 +23,6 @@
 /nbdist/
 /.nb-gradle/
 /build/
+
+### Angular ###
+/src/main/resources/static/restClient/node_modules
