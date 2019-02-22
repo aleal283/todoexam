@@ -1,0 +1,37 @@
+<h2>Lista de TODOs</h2>
+
+<table class="table table-striped">
+  <thead>
+    <th>ID</th>
+    <th>TODO</th>
+    <th>Descripcion</th>
+    <th>Imagen Adjunta</th>
+    <th>Estado</th>
+    
+    <th>Descripción del Estado</th>
+    <th>Operaciones</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.id}}</td>
+      <td>{{user.fname}}</td>
+      <td>{{user.lname}}</td>
+      <td>{{user.idfile}} </td>
+      <td>
+        <div class="custom-control custom-switch">
+          
+          <input type="checkbox" class="custom-control-input" id="customSwitch{{user.id}}" [(ngModel)]="user.state" (change)="updateState(user)">
+          <label class="custom-control-label" for="customSwitch{{user.id}}"></label>
+      </div>
+      </td>
+      <td><p *ngIf="user.state">Resuelta</p><p *ngIf="!user.state">Pendiente</p></td>
+      <td><button type="button" class="btn btn-primary" (click)="updateUser(user)">Actualizar</button>
+          <button type="button" class="btn btn-danger" (click)="deleteUser(user)">Borrar</button></td>
+      
+    </tr>
+  </tbody>
+
+</table>
+<button type="button" class="btn btn-success" (click)="newUser()">Agregar</button>
+
+
